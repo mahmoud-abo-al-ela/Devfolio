@@ -10,8 +10,7 @@ export function registerSkillRoutes(app: Express) {
     try {
       const skills = await storage.getAllSkills();
       res.json(skills);
-    } catch (error) {
-      console.error("Error fetching skills:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch skills" });
     }
   });
@@ -26,7 +25,6 @@ export function registerSkillRoutes(app: Express) {
         const validationError = fromError(error);
         return res.status(400).json({ error: validationError.toString() });
       }
-      console.error("Error creating skill:", error);
       res.status(500).json({ error: "Failed to create skill" });
     }
   });
@@ -47,7 +45,6 @@ export function registerSkillRoutes(app: Express) {
         const validationError = fromError(error);
         return res.status(400).json({ error: validationError.toString() });
       }
-      console.error("Error updating skill:", error);
       res.status(500).json({ error: "Failed to update skill" });
     }
   });
@@ -62,8 +59,7 @@ export function registerSkillRoutes(app: Express) {
       }
 
       res.status(204).send();
-    } catch (error) {
-      console.error("Error deleting skill:", error);
+    } catch {
       res.status(500).json({ error: "Failed to delete skill" });
     }
   });
@@ -76,8 +72,7 @@ export function registerSkillRoutes(app: Express) {
       }
       await storage.updateSkillsOrder(skillIds);
       res.json({ success: true });
-    } catch (error) {
-      console.error("Error reordering skills:", error);
+    } catch {
       res.status(500).json({ error: "Failed to reorder skills" });
     }
   });

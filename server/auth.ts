@@ -72,8 +72,7 @@ export async function verifyGoogleToken(
 
       return newUser[0] as AuthUser;
     }
-  } catch (error) {
-    console.error("Google token verification error:", error);
+  } catch {
     return null;
   }
 }
@@ -87,8 +86,7 @@ export async function getUserById(id: string): Promise<AuthUser | null> {
       return user[0] as AuthUser;
     }
     return null;
-  } catch (error) {
-    console.error("Get user error:", error);
+  } catch {
     return null;
   }
 }

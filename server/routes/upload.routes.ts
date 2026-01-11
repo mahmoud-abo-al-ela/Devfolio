@@ -61,7 +61,6 @@ router.post(
         publicId: (result as any).public_id,
       });
     } catch (error: any) {
-      console.error("Upload error:", error);
       res.status(500).json({ message: error.message || "Upload failed" });
     }
   }

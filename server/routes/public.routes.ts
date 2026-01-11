@@ -9,8 +9,7 @@ export function registerPublicRoutes(app: Express) {
     try {
       const skills = await storage.getAllSkills();
       res.json(skills);
-    } catch (error) {
-      console.error("Error fetching skills:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch skills" });
     }
   });
@@ -20,8 +19,7 @@ export function registerPublicRoutes(app: Express) {
     try {
       const projects = await storage.getAllProjects();
       res.json(projects);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch projects" });
     }
   });
@@ -31,8 +29,7 @@ export function registerPublicRoutes(app: Express) {
     try {
       const settings = await storage.getSettings();
       res.json(settings || null);
-    } catch (error) {
-      console.error("Error fetching settings:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch settings" });
     }
   });

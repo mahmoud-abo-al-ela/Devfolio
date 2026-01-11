@@ -27,8 +27,7 @@ export function registerAnalyticsRoutes(app: Express) {
       }
 
       res.json(result[0]);
-    } catch (error) {
-      console.error("Error fetching analytics:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch analytics" });
     }
   });
@@ -45,8 +44,7 @@ export function registerAnalyticsRoutes(app: Express) {
         .limit(days);
 
       res.json(result.reverse());
-    } catch (error) {
-      console.error("Error fetching daily views:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch daily views" });
     }
   });
@@ -95,8 +93,7 @@ export function registerAnalyticsRoutes(app: Express) {
         .returning();
 
       res.json(updated);
-    } catch (error) {
-      console.error("Error updating analytics:", error);
+    } catch {
       res.status(500).json({ error: "Failed to update analytics" });
     }
   });
@@ -146,8 +143,7 @@ export function registerAnalyticsRoutes(app: Express) {
       }
 
       res.json({ success: true });
-    } catch (error) {
-      console.error("Error incrementing view:", error);
+    } catch {
       res.status(500).json({ error: "Failed to increment view" });
     }
   });
@@ -182,8 +178,7 @@ export function registerAnalyticsRoutes(app: Express) {
         .returning();
 
       res.json(updated);
-    } catch (error) {
-      console.error("Error incrementing project click:", error);
+    } catch {
       res.status(500).json({ error: "Failed to increment project click" });
     }
   });
@@ -218,8 +213,7 @@ export function registerAnalyticsRoutes(app: Express) {
         .returning();
 
       res.json(updated);
-    } catch (error) {
-      console.error("Error incrementing contact inquiry:", error);
+    } catch {
       res.status(500).json({ error: "Failed to increment contact inquiry" });
     }
   });

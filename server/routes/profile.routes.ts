@@ -10,8 +10,7 @@ export function registerProfileRoutes(app: Express) {
     try {
       const profileData = await storage.getProfile();
       res.json(profileData || null);
-    } catch (error) {
-      console.error("Error fetching profile:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch profile" });
     }
   });
@@ -26,7 +25,6 @@ export function registerProfileRoutes(app: Express) {
         const validationError = fromError(error);
         return res.status(400).json({ error: validationError.toString() });
       }
-      console.error("Error updating profile:", error);
       res.status(500).json({ error: "Failed to update profile" });
     }
   });

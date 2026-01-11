@@ -10,8 +10,7 @@ export function registerProjectRoutes(app: Express) {
     try {
       const projects = await storage.getAllProjects();
       res.json(projects);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch projects" });
     }
   });
@@ -26,8 +25,7 @@ export function registerProjectRoutes(app: Express) {
       }
 
       res.json(project);
-    } catch (error) {
-      console.error("Error fetching project:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch project" });
     }
   });
@@ -42,7 +40,6 @@ export function registerProjectRoutes(app: Express) {
         const validationError = fromError(error);
         return res.status(400).json({ error: validationError.toString() });
       }
-      console.error("Error creating project:", error);
       res.status(500).json({ error: "Failed to create project" });
     }
   });
@@ -63,7 +60,6 @@ export function registerProjectRoutes(app: Express) {
         const validationError = fromError(error);
         return res.status(400).json({ error: validationError.toString() });
       }
-      console.error("Error updating project:", error);
       res.status(500).json({ error: "Failed to update project" });
     }
   });
@@ -78,8 +74,7 @@ export function registerProjectRoutes(app: Express) {
       }
 
       res.status(204).send();
-    } catch (error) {
-      console.error("Error deleting project:", error);
+    } catch {
       res.status(500).json({ error: "Failed to delete project" });
     }
   });

@@ -10,8 +10,7 @@ export function registerSettingsRoutes(app: Express) {
     try {
       const settings = await storage.getSettings();
       res.json(settings || null);
-    } catch (error) {
-      console.error("Error fetching settings:", error);
+    } catch {
       res.status(500).json({ error: "Failed to fetch settings" });
     }
   });
@@ -26,7 +25,6 @@ export function registerSettingsRoutes(app: Express) {
         const validationError = fromError(error);
         return res.status(400).json({ error: validationError.toString() });
       }
-      console.error("Error updating settings:", error);
       res.status(500).json({ error: "Failed to update settings" });
     }
   });

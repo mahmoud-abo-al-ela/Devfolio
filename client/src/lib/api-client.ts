@@ -34,9 +34,6 @@ export async function apiClient(url: string, options: RequestInit = {}) {
         error.error || `Request failed with status ${response.status}`
       );
     } else {
-      // If not JSON, it might be HTML error page
-      const text = await response.text();
-      console.error("Non-JSON response:", text.substring(0, 200));
       throw new Error(`Request failed with status ${response.status}`);
     }
   }
@@ -51,8 +48,6 @@ export async function apiClient(url: string, options: RequestInit = {}) {
   if (contentType && contentType.includes("application/json")) {
     return response.json();
   } else {
-    const text = await response.text();
-    console.error("Expected JSON but got:", text.substring(0, 200));
     throw new Error("Server returned non-JSON response");
   }
 }

@@ -66,8 +66,7 @@ export function registerAuthRoutes(app: Express) {
       const token = generateToken(user);
 
       res.json({ token, user });
-    } catch (error) {
-      console.error("Auth error:", error);
+    } catch {
       res.status(500).json({ error: "Authentication failed" });
     }
   });
