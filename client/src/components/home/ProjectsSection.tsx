@@ -51,18 +51,18 @@ export function ProjectsSection({ projects, isLoading }: ProjectsSectionProps) {
     document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <section id="work" className="py-12 md:py-16 lg:py-20 relative">
+    <section id="work" className="py-12 md:py-20 pb-6 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 md:mb-12 lg:mb-16"
+          className="mb-8"
         >
           <div className="max-w-2xl">
             <Badge
               variant="outline"
-              className="mb-3 md:mb-4 text-xs md:text-sm border-primary/30 text-primary bg-primary/5"
+              className="mb-2 text-xs md:text-sm border-primary/30 text-primary bg-primary/5"
             >
               Portfolio
             </Badge>

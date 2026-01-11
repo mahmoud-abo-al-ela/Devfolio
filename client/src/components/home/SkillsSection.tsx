@@ -91,7 +91,7 @@ export function SkillsSection({
   return (
     <section
       id="skills"
-      className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-secondary/30 via-secondary/20 to-background border-y border-white/5 relative overflow-hidden"
+      className="py-12 md:py-20 bg-gradient-to-b from-secondary/30 via-secondary/20 to-background border-y border-white/5 relative overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />

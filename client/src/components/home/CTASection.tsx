@@ -25,10 +25,7 @@ export function CTASection() {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-12 md:py-16 lg:py-20 relative overflow-hidden"
-    >
+    <section id="contact" className="py-12 md:py-24 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-background" />
       <div className="absolute inset-0 bg-grid-white/[0.02]" />
