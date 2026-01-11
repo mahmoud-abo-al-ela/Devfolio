@@ -9,6 +9,7 @@ import {
   ChevronDown,
   Sparkles,
 } from "lucide-react";
+import { useState } from "react";
 import heroImage from "@assets/image.png";
 import abstractBg from "@assets/abstract_digital_project_cover.png";
 
@@ -24,6 +25,8 @@ export function HeroSection({
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+  const [bgLoaded, setBgLoaded] = useState(false);
+  const [heroLoaded, setHeroLoaded] = useState(false);
 
   return (
     <section className="relative min-h-[90vh] md:min-h-[95vh] flex items-center justify-center overflow-hidden">
@@ -34,7 +37,11 @@ export function HeroSection({
           style={{ opacity, scale }}
           src={abstractBg}
           alt=""
-          className="w-full h-full object-cover opacity-40"
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
+            bgLoaded ? "opacity-40" : "opacity-0"
+          }`}
+          loading="eager"
+          onLoad={() => setBgLoaded(true)}
         />
         {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-10" />
